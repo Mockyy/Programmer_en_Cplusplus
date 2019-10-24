@@ -7,6 +7,8 @@ private:
 	int nX;
 	int nY;
 
+	int *pnx;
+
 public:
 	//Mutateurs et assesseurs
 	
@@ -16,5 +18,16 @@ public:
 
 	void setX(int a);
 	void setY(int a);
+
+	void init(int x, int y);
+
+	//Constructeur sans paramètre
+	CPoint();
+
+	//Constructeur avec paramètres
+	CPoint(int x, int y);
+
+	//Destructeur
+	~CPoint();
 };
 

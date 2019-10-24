@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include "CPoint.h"
 
+using namespace std;
 
 //POO C++
 //Class (données et méthodes)
@@ -10,16 +11,23 @@
 int main()
 {
 	CPoint ptMonPoint;
-	int a;
+	CPoint ptPointOppose(30, 52);
+	int x, y;
 
-	std::cout << "Entrez un nombre ";
-	std::cin >> a;
+	//ptMonPoint.init(0, 0);
 
-	ptMonPoint.setX(a);
-	ptMonPoint.setY(a * 2);
+	cout << "Entrez un x ";
+	cin >> x;
 
-	std::cout << "X : " << ptMonPoint.getX() << std::endl;
-	std::cout << "Y : " << ptMonPoint.getY() << std::endl;
+	cout << "Entrez un y ";
+	cin >> y;
+
+	ptMonPoint.setX(x);
+	ptMonPoint.setY(y);
+
+
+	cout << "X : " << ptMonPoint.getX() << endl;
+	cout << "Y : " << ptMonPoint.getY() << endl;
 
 	system("pause");
 
