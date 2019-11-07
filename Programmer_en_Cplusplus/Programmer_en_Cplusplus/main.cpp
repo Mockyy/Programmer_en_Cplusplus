@@ -4,17 +4,16 @@
 
 using namespace std;
 
-//POO C++
-//Class (données et méthodes)
-
-
 int main()
 {
-	CPoint ptMonPoint;
-	CPoint ptPointOppose(30, 52);
-	int x, y;
+	//Déclaration d'un point
+	CPoint ptMonPoint(45.10f, 50);
 
-	//ptMonPoint.init(0, 0);
+	//Affichage des coordonnées du point
+	ptMonPoint.AffichePoint();
+
+	//Deux float pour demander à l'utilisateur de combien il veut décaler son point
+	float x, y;
 
 	cout << "Entrez un x ";
 	cin >> x;
@@ -22,15 +21,14 @@ int main()
 	cout << "Entrez un y ";
 	cin >> y;
 
-	ptMonPoint.setX(x);
-	ptMonPoint.setY(y);
+	//On décale le point par les float entrés plus haut
+	ptMonPoint.DeplacePoint(x, y);
 
+	//On affiche les coordonnées du point
+	ptMonPoint.AffichePoint();
 
-	cout << "X : " << ptMonPoint.getX() << endl;
-	cout << "Y : " << ptMonPoint.getY() << endl;
-
+	//On pause pour voir les résultats
 	system("pause");
-
 
 	return 0;
 }

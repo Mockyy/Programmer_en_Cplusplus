@@ -1,48 +1,53 @@
 #include "CPoint.h"
+#include <iostream>
 #include <cstdlib>
 
-int CPoint::getX()
+using namespace std;
+
+//Getters
+float CPoint::getX()
 {
 	return nX;
 }
 
-int CPoint::getY()
+float CPoint::getY()
 {
 	return nY;
 }
 
-void CPoint::setX(int a)
+//Setters
+void CPoint::setX(float a)
 {
 	this->nX = a;
 }
 
-void CPoint::setY(int a)
+void CPoint::setY(float a)
 {
 	this->nY = a;
 }
 
-void CPoint::init(int x, int y)
+//Constructeur
+CPoint::CPoint(float x, float y)
 {
 	this->nX = x;
 	this->nY = y;
 }
 
-//Constructeur sans paramètre
-CPoint::CPoint()
-{
-	this->nX = 0;
-	this->nY = 0;
-	this->pnx = new int;
-	*pnx = 0;
-}
-
-CPoint::CPoint(int x, int y)
-{
-	this->nX = x;
-	this->nY = y;
-}
-
+//Destructeur
 CPoint::~CPoint()
 {
-	delete(pnx);
+	
+}
+
+//Déplacer un point : on AJOUTE (on ne remplace pas)respectivemment aux coordonnées du point les float en paramètres
+void CPoint::DeplacePoint(float nX, float nY)
+{
+	this->setX(this->getX() + nX);
+	this->setY(this->getY() + nY);
+}
+
+//Afficher un point : Renvoie les coordonnées d'un point et les écrit
+void CPoint::AffichePoint()
+{
+	cout << "X : " << this->getX() << " Y : " << this->getY() << endl;
 }
