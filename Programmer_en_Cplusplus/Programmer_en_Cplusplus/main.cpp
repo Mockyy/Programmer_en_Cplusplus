@@ -7,11 +7,15 @@ using namespace std;
 int main()
 {
 	//Déclaration d'un point
-	CPoint ptMonPoint(45.10f, 50);
+	CPoint ptMonPoint(6, 4);
 
-	//Affichage des coordonnées du point
-	cout << "X : " << ptMonPoint.Abscisse() << endl;
-	cout << "Y : " << ptMonPoint.Ordonnee() << endl;
+	//On effectue l'homothetie de ptMonPoint par rapport à un point en 10,1 avec un rapport de 2
+	CPoint homothetie = ptMonPoint.Homothetie(10, 1, 2);
+
+	//On affiche les coordonnées du point de l'homothetie;
+	cout << "Homothetie x : " << homothetie.Abscisse() << endl;
+	cout << "Homothetie y : " << homothetie.Ordonnee() << endl;
+
 
 	//On pause pour voir les résultats
 	system("pause");

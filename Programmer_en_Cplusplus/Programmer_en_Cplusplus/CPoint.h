@@ -34,5 +34,8 @@ public:
 
 	//Affichage : Renvoie l'ordonnée d'un point
 	float Ordonnee();
+
+	//Homothetie : un aggrandissement ou une réduction d'un point en fonction d'un point donné en paramètre
+	CPoint Homothetie(float x, float y, float rapport);
 };
 
