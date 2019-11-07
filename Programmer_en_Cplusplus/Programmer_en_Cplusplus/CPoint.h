@@ -29,7 +29,10 @@ public:
 	//Déplacement : décale le point par les coodonnées données en paramètre
 	void DeplacePoint(float nX, float nY);
 
-	//Affichage : renvoie les deux attributs d'un point
-	void AffichePoint();
+	//Affichage : renvoie l'abscisse d'un point
+	float Abscisse();
+
+	//Affichage : Renvoie l'ordonnée d'un point
+	float Ordonnee();
 };
 

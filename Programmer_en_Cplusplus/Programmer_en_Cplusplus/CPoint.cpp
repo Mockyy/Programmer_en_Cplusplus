@@ -46,8 +46,14 @@ void CPoint::DeplacePoint(float nX, float nY)
 	this->setY(this->getY() + nY);
 }
 
-//Afficher un point : Renvoie les coordonnées d'un point et les écrit
-void CPoint::AffichePoint()
+//Affichage : renvoie l'abscisse d'un point
+float CPoint::Abscisse()
 {
-	cout << "X : " << this->getX() << " Y : " << this->getY() << endl;
+	return this->nX;
+}
+
+//Affichage : renvoie l'ordonnée d'un point
+float CPoint::Ordonnee()
+{
+	return this->nY;
 }
