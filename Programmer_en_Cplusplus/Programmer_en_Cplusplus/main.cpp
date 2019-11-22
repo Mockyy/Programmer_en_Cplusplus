@@ -22,12 +22,27 @@ int main()
 	cout << "Entrez un y ";
 	cin >> y;
 
+<<<<<<< Updated upstream
 	ptMonPoint.setX(x);
 	ptMonPoint.setY(y);
 
 
 	cout << "X : " << ptMonPoint.getX() << endl;
 	cout << "Y : " << ptMonPoint.getY() << endl;
+=======
+	if (ptMonPoint.CoincidePoint(&homothetie))
+	{
+		cout << "Les points coincident." << endl;
+	}
+	else
+	{
+		cout << "Les points ne coincident pas." << endl;
+	}
+
+	ptMonPoint.AffficherPoint();
+
+	cout << "Nombre de points : " << CPoint::Compte() << endl;
+>>>>>>> Stashed changes
 
 	system("pause");
 
