@@ -1,51 +1,30 @@
 #include <iostream>
 #include <cstdlib>
 #include "CPoint.h"
+#include "CCercle.h"
 
 using namespace std;
 
-//POO C++
-//Class (données et méthodes)
-
-
 int main()
 {
-	CPoint ptMonPoint;
-	CPoint ptPointOppose(30, 52);
-	int x, y;
+	//Déclaration d'un point
+	CPoint pt;
 
-	//ptMonPoint.init(0, 0);
+	char cColor[10] = { "rouge" };
+	CPoint ptmonPoint(5, 9, cColor);
+	CPoint ptmonpoint2(ptmonPoint);
 
-	cout << "Entrez un x ";
-	cin >> x;
+	cout << "X : " << ptmonPoint.getX() << " Y : " << ptmonPoint.getY() << " Couleur : " << ptmonPoint.getColor() << endl;
 
-	cout << "Entrez un y ";
-	cin >> y;
+	cout << " Color2 : " << ptmonpoint2.getColor() << endl;
 
-<<<<<<< Updated upstream
-	ptMonPoint.setX(x);
-	ptMonPoint.setY(y);
+	char cColor2[10] = { "vert" };
+	ptmonpoint2.setColor(cColor2);
 
+	cout << " Color2 : " << ptmonpoint2.getColor() << endl;
 
-	cout << "X : " << ptMonPoint.getX() << endl;
-	cout << "Y : " << ptMonPoint.getY() << endl;
-=======
-	if (ptMonPoint.CoincidePoint(&homothetie))
-	{
-		cout << "Les points coincident." << endl;
-	}
-	else
-	{
-		cout << "Les points ne coincident pas." << endl;
-	}
-
-	ptMonPoint.AffficherPoint();
-
-	cout << "Nombre de points : " << CPoint::Compte() << endl;
->>>>>>> Stashed changes
-
+	//On pause pour voir les résultats
 	system("pause");
-
 
 	return 0;
 }

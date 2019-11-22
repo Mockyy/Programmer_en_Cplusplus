@@ -1,64 +1,77 @@
 #include "CPoint.h"
+#include <iostream>
 #include <cstdlib>
 
-<<<<<<< Updated upstream
-int CPoint::getX()
-=======
 using namespace std;
 
-int CPoint::nbPoint = 0;
-
 //Getters
+
+
 float CPoint::getX()
->>>>>>> Stashed changes
 {
 	return nX;
 }
 
-int CPoint::getY()
+float CPoint::getY()
 {
 	return nY;
 }
 
-<<<<<<< Updated upstream
-void CPoint::setX(int a)
-=======
-char * CPoint::getColor()
+char* CPoint::getColor()
 {
 	return cColor;
 }
 
 //Setters
 void CPoint::setX(float a)
->>>>>>> Stashed changes
 {
 	this->nX = a;
 }
 
-void CPoint::setY(int a)
+void CPoint::setY(float a)
 {
 	this->nY = a;
 }
 
-<<<<<<< Updated upstream
-void CPoint::init(int x, int y)
-=======
 void CPoint::setColor(char * couleur)
->>>>>>> Stashed changes
 {
-	cColor = couleur;
+	strcpy_s(this->cColor, strlen(cColor) + 1, cColor);
 }
 
-<<<<<<< Updated upstream
-//Constructeur sans paramètre
 CPoint::CPoint()
-=======
-//Constructeur dans le .h
+{
+}
+
+CPoint::CPoint(const CPoint & p)
+{
+	this->nX = nX;
+	this->nY = nY;
+	this->cColor = new char[strlen(p.cColor) + 1];
+	int nTaille = strlen(p.cColor) + 1;
+	strcpy_s(this->cColor, nTaille, p.cColor);
+}
+
+CPoint::CPoint(float nX, float nY)
+{
+	this->nX = nX;
+	this->nY = nY;
+}
+
+//Constructeur
+CPoint::CPoint(float x, float y, char* cCouleur)
+{
+	this->nX = x;
+	this->nY = y;
+
+	this->cColor = new char[strlen(cColor) + 1];
+	int taille = strlen(cColor);
+	strcpy_s(this->cColor, taille, cColor);
+}
 
 //Destructeur
 CPoint::~CPoint()
 {
-	nbPoint--;
+	delete cColor;
 }
 
 //Déplacer un point : on AJOUTE (on ne remplace pas)respectivemment aux coordonnées du point les float en paramètres
@@ -70,82 +83,75 @@ void CPoint::DeplacePoint(float nX, float nY)
 
 //Affichage : renvoie l'abscisse d'un point
 float CPoint::Abscisse()
->>>>>>> Stashed changes
 {
-	this->nX = 0;
-	this->nY = 0;
-	this->pnx = new int;
-	*pnx = 0;
+	return this->nX;
 }
 
-CPoint::CPoint(int x, int y)
+//Affichage : renvoie l'ordonnée d'un point
+float CPoint::Ordonnee()
 {
-	this->nX = x;
-	this->nY = y;
+	return this->nY;
 }
-
-CPoint::~CPoint()
-{
-	delete(pnx);
-}
-
-//Passage par valeur si l'objet possède des pointeurs -> passage par ADRESSE ou RÉFÉRENCE obligatoire
 /*
-bool CPoint::CoincidePoint(CPoint pt)
+//Calcul de l'homothetie : on calcule la distance entre les deux points grâce à Pythagore
+CPoint CPoint::Homothetie(float ptX, float ptY, float rapport)
 {
-	if ((pt.nX == nX) && (pt.nY == nY))
+	float ptCx, ptCy, hypo, distanceX, distanceY;
+
+	//Si les deux points ont la même abscisse ou ordonnée, l'hypotenuse est égale à la soustraction du plus grand par le plus petit
+	if (ptX == this->getX())
 	{
-		return true;
+		if (ptY > this->getY())
+		{
+			hypo = ptY - this->getY();
+		}
+		else
+		{
+			hypo = this->getY() - ptY;
+		}
+	}
+	if (ptY == this->getY())
+	{
+		if (ptX > this->getX())
+		{
+			hypo = ptX - this->getX();
+		}
+		else
+		{
+			hypo = this->getX() - ptX;
+		}
+	}
+
+	//On calcule la distance du plus grand x moins le plus petit x
+	if (ptX > this->getX())
+	{
+		ptCx = this->getX();
+		distanceX = ptX - ptCx;
 	}
 	else
 	{
-		return false;
+		ptCx = ptX;
+		distanceX = this->getX() - ptCx;
 	}
-}*/
 
-//Passage par adresse si l'objet possède des pointeurs -> passage par ADRESSE ou RÉFÉRENCE obligatoire
-bool CPoint::CoincidePoint(CPoint * pt)
-{
-	if ((pt->nX == nX) && (pt->nY == nY))
+	//Pareil avec y
+	if (ptY > this->getY())
 	{
-		return true;
+		ptCy = this->getY();
+		distanceY = ptY - ptCy;
 	}
 	else
 	{
-		return false;
+		ptCy = ptY;
+		distanceY = this->getY() - ptCy;
 	}
+
+	//Pythagore
+	hypo = sqrt(distanceX * distanceX + distanceY * distanceY);
+	
+	//Nouveau point
+	CPoint Homo(this->getX() + (hypo * rapport), this->getY() + hypo * rapport);
+	
+	return Homo;
 }
-
-//Passage par référence si l'objet possède des pointeurs -> passage par ADRESSE ou RÉFÉRENCE obligatoire
-bool CPoint::CoincidePoint(CPoint & pt)
-{
-	if ((pt.nX == nX) && (pt.nY == nY))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-//Renvoie la symétrie d'un point par rapport à un point donné en argument
-CPoint CPoint::SymetriePoint()
-{
-	CPoint ptSym;
-
-	ptSym.nX = -nX;
-	ptSym.nY = -nY;
-
-	return ptSym;
-}
-
-int CPoint::Compte()
-{
-	return nbPoint;
-}
-
-void CPoint::AffficherPoint() const
-{
-	cout << "X : " << nX << " Y : " << nY << endl;
-}
+*/

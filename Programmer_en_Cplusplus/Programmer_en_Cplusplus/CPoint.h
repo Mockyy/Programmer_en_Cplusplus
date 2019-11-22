@@ -4,41 +4,15 @@ class CPoint
 {
 private:
 	//Données membre / Attributs membres de la classe (embeded functions)
-<<<<<<< Updated upstream
-	int nX;
-	int nY;
-
-	int *pnx;
-=======
 	float nX;
 	float nY;
-	char* cColor;
-
-	static int nbPoint;
->>>>>>> Stashed changes
+	char *cColor;
 
 public:
-	//Mutateurs et assesseurs
+	//-----Mutateurs et assesseurs-----\\
 	
-<<<<<<< Updated upstream
-	//Prototypes ou déclarations
-	int getX();
-	int getY();
-
-	void setX(int a);
-	void setY(int a);
-
-	void init(int x, int y);
-
-	//Constructeur sans paramètre
-	CPoint();
-
-	//Constructeur avec paramètres
-	CPoint(int x, int y);
-
-	//Destructeur
-	~CPoint();
-=======
+	//--Prototypes ou déclarations--\\
+	
 	//Getters
 	float getX();
 	float getY();
@@ -47,16 +21,17 @@ public:
 	//Setters
 	void setX(float a);
 	void setY(float a);
-	void setColor(char* couleur);
+	void setColor(char *couleur);
 
-	//Constructeur avec paramètres
-	inline CPoint(float x = 0, float y = 0, char* couleur = NULL)
-	{
-		this->nX = x;
-		this->nY = y;
-		this->cColor = couleur;
-		nbPoint++;
-	}
+	//Constructeur par défaut
+	CPoint();
+
+	CPoint(const CPoint &p);
+
+	//Constructeurs avec paramètres
+	CPoint(float nX, float nY);
+
+	CPoint(float x, float y, char* couleur);
 
 	//Destructeur
 	~CPoint();
@@ -71,24 +46,6 @@ public:
 	float Ordonnee();
 
 	//Homothetie : un aggrandissement ou une réduction d'un point en fonction d'un point donné en paramètre
-	CPoint Homothetie(float x, float y, float rapport);
-
-	//Retourne vrai si les point sont égaux (passage par valeur)
-	bool CoincidePoint(CPoint pt);
-
-	//Passage par adresse
-	bool CoincidePoint(CPoint *pt);
-
-	//Passage par référence
-	bool CoincidePoint(CPoint &pt);
-
-	//Symétrie
-	CPoint SymetriePoint();
-
-	static int Compte();
-
-	//Const assure qu'aucune valeur ne sera bléssée pendant le tournage
-	void AffficherPoint()const;
->>>>>>> Stashed changes
+	//CPoint Homothetie(float x, float y, float rapport);
 };
 
