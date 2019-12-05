@@ -36,6 +36,9 @@ public:
 	//Destructeur
 	~CPoint();
 
+	//AFfichage
+	void AffichePoint();
+
 	//Déplacement : décale le point par les coodonnées données en paramètre
 	void DeplacePoint(float nX, float nY);
 
@@ -47,5 +50,14 @@ public:
 
 	//Homothetie : un aggrandissement ou une réduction d'un point en fonction d'un point donné en paramètre
 	//CPoint Homothetie(float x, float y, float rapport);
+
+	bool estEgal(CPoint &const pt) const;
+
+	CPoint additionner(CPoint &const pt) const;
+
+	CPoint soustraire(CPoint &const pt) const;
+
+	void operator+=(CPoint &const pt);
+
 };
 

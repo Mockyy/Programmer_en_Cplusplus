@@ -38,19 +38,22 @@ void CPoint::setColor(char * couleur)
 	strcpy_s(this->cColor, strlen(cColor) + 1, cColor);
 }
 
+//Constructeur sans paramètre
 CPoint::CPoint()
 {
 }
 
+//Constructeur de copie
 CPoint::CPoint(const CPoint & p)
 {
-	this->nX = nX;
-	this->nY = nY;
-	this->cColor = new char[strlen(p.cColor) + 1];
-	int nTaille = strlen(p.cColor) + 1;
-	strcpy_s(this->cColor, nTaille, p.cColor);
+	this->nX = p.nX;
+	this->nY = p.nY;
+	//this->cColor = new char[strlen(p.cColor) + 1];
+	//int nTaille = strlen(p.cColor) + 1;
+	//strcpy_s(this->cColor, nTaille, p.cColor);
 }
 
+//Constructeur avec 2 paramètres
 CPoint::CPoint(float nX, float nY)
 {
 	this->nX = nX;
@@ -63,15 +66,20 @@ CPoint::CPoint(float x, float y, char* cCouleur)
 	this->nX = x;
 	this->nY = y;
 
-	this->cColor = new char[strlen(cColor) + 1];
+	this->cColor = new char[strlen(cCouleur) + 1];
 	int taille = strlen(cColor);
-	strcpy_s(this->cColor, taille, cColor);
+	strcpy_s(this->cColor, taille, cCouleur);
 }
 
 //Destructeur
 CPoint::~CPoint()
 {
-	delete cColor;
+	//delete cColor;
+}
+
+void CPoint::AffichePoint()
+{
+	cout << "X : " << nX << " | Y : " << nY << endl;
 }
 
 //Déplacer un point : on AJOUTE (on ne remplace pas)respectivemment aux coordonnées du point les float en paramètres
@@ -92,66 +100,34 @@ float CPoint::Ordonnee()
 {
 	return this->nY;
 }
-/*
-//Calcul de l'homothetie : on calcule la distance entre les deux points grâce à Pythagore
-CPoint CPoint::Homothetie(float ptX, float ptY, float rapport)
+
+bool CPoint::estEgal(CPoint &const pt) const
 {
-	float ptCx, ptCy, hypo, distanceX, distanceY;
-
-	//Si les deux points ont la même abscisse ou ordonnée, l'hypotenuse est égale à la soustraction du plus grand par le plus petit
-	if (ptX == this->getX())
-	{
-		if (ptY > this->getY())
-		{
-			hypo = ptY - this->getY();
-		}
-		else
-		{
-			hypo = this->getY() - ptY;
-		}
-	}
-	if (ptY == this->getY())
-	{
-		if (ptX > this->getX())
-		{
-			hypo = ptX - this->getX();
-		}
-		else
-		{
-			hypo = this->getX() - ptX;
-		}
-	}
-
-	//On calcule la distance du plus grand x moins le plus petit x
-	if (ptX > this->getX())
-	{
-		ptCx = this->getX();
-		distanceX = ptX - ptCx;
-	}
-	else
-	{
-		ptCx = ptX;
-		distanceX = this->getX() - ptCx;
-	}
-
-	//Pareil avec y
-	if (ptY > this->getY())
-	{
-		ptCy = this->getY();
-		distanceY = ptY - ptCy;
-	}
-	else
-	{
-		ptCy = ptY;
-		distanceY = this->getY() - ptCy;
-	}
-
-	//Pythagore
-	hypo = sqrt(distanceX * distanceX + distanceY * distanceY);
-	
-	//Nouveau point
-	CPoint Homo(this->getX() + (hypo * rapport), this->getY() + hypo * rapport);
-	
-	return Homo;
+	return (nX == pt.nX && nY == pt.nY);
 }
-*/
+
+CPoint CPoint::additionner(CPoint & const pt) const
+{
+	CPoint resultat;
+	resultat.nX = nX + pt.nX;
+	resultat.nY = nY + pt.nY;
+
+	return resultat;
+}
+
+CPoint CPoint::soustraire(CPoint & const pt) const
+{
+	CPoint resultat;
+	resultat.nX = nX - pt.nX;
+	resultat.nY = nY - pt.nY;
+	return resultat;
+}
+
+void CPoint::operator+=(CPoint & const pt)
+{
+	nX + pt.nX;
+	nY + pt.nY;
+}
+
+
+
