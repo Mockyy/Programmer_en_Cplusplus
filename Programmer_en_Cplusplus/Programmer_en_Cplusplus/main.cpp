@@ -88,7 +88,11 @@ int main()
 
 	CPointCouleur ptPointdunecertainecouleur;
 
-	CPointCouleur ptPointduneautrecouleur();
+	char rouge[] = "FF000";
+	CPointCouleur ptPointduneautrecouleur(2, 3, rouge);
+
+	ptPointdunecertainecouleur.affichage();
+	ptPointduneautrecouleur.affichage();
 
 	//On pause pour voir les résultats
 	system("pause");

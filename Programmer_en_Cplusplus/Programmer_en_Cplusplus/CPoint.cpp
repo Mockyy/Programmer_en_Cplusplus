@@ -54,7 +54,7 @@ CPoint::~CPoint()
 
 void CPoint::AffichePoint()
 {
-	cout << "X : " << nX << " | Y : " << nY << endl;
+	cout << "X : " << nX << " | Y : " << nY;
 }
 
 //Déplacer un point : on AJOUTE (on ne remplace pas)respectivemment aux coordonnées du point les float en paramètres

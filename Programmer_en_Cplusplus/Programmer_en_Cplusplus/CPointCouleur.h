@@ -14,7 +14,6 @@ public:
 
 	//Constructeurs
 	CPointCouleur();
-	CPointCouleur(char* cCouleur);
 	CPointCouleur(float nX, float nY, char* cCouleur);
 
 	//Destructeur

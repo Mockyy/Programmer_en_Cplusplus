@@ -15,18 +15,17 @@ char* CPointCouleur::getCouleur() const
 
 CPointCouleur::CPointCouleur()
 {
+	const int taille = 10;
+	CPoint::CPoint(0, 0);
+	cCouleur = new char[taille];
+	strcpy_s(cCouleur, taille * sizeof(char), "0xfff");
 }
 
-CPointCouleur::CPointCouleur(char * cCouleur)
+CPointCouleur::CPointCouleur(float nX, float nY, char * cCoul) : CPoint(nX, nY)
 {
-	this->cCouleur = cCouleur;
-}
-
-CPointCouleur::CPointCouleur(float nX, float nY, char * cCouleur)
-{
-	this->nX = nX;
-	this->nY = nY;
-	this->cCouleur = cCouleur;
+	const int taille = strlen(cCoul) + 1;
+	cCouleur = new char[taille];
+	strcpy_s(cCouleur, taille * sizeof(char), cCoul);
 }
 
 CPointCouleur::~CPointCouleur()
@@ -35,5 +34,6 @@ CPointCouleur::~CPointCouleur()
 
 void CPointCouleur::affichage()
 {
-	cout << "| X : " << this->nX << " | Y : " << this->nY << " | Couleur : " << this->cCouleur << " |" << endl;
+	CPoint::AffichePoint();
+	cout << " | Couleur : " << this->cCouleur << " |" << endl;
 }
