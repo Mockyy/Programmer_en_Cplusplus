@@ -1,37 +1,37 @@
 #include <iostream>
 #include <cstdlib>
-#include "CPoint.h"
+#include "CPointCouleur.h"
 
 using namespace std;
 
-bool operator==(CPoint &const pt1, CPoint &const pt2)
-{
-	return pt1.estEgal(pt2);
-}
-
-bool operator !=(CPoint &const pt1, CPoint &const pt2)
-{
-	if (pt1 == pt2)
-	{
-		return false;
-	}
-	else
-	{
-		return true;
-	}
-}
-
-CPoint operator+(CPoint &const pt1, CPoint &const pt2)
-{
-	CPoint resultat = pt1.additionner(pt2);
-	return resultat;
-}
-
-CPoint operator-(CPoint &const pt1, CPoint &const pt2)
-{
-	CPoint resultat = pt1.soustraire(pt2);
-	return resultat;
-}
+//bool operator==(CPoint &const pt1, CPoint &const pt2)
+//{
+//	return pt1.estEgal(pt2);
+//}
+//
+//bool operator !=(CPoint &const pt1, CPoint &const pt2)
+//{
+//	if (pt1 == pt2)
+//	{
+//		return false;
+//	}
+//	else
+//	{
+//		return true;
+//	}
+//}
+//
+//CPoint operator+(CPoint &const pt1, CPoint &const pt2)
+//{
+//	CPoint resultat = pt1.additionner(pt2);
+//	return resultat;
+//}
+//
+//CPoint operator-(CPoint &const pt1, CPoint &const pt2)
+//{
+//	CPoint resultat = pt1.soustraire(pt2);
+//	return resultat;
+//}
 
 
 int main()
@@ -52,39 +52,43 @@ int main()
 
 	cout << " Color2 : " << ptmonpoint2.getColor() << endl;*/
 
-	CPoint pt1(10, 5);
-	CPoint pt2(15, 2);
+	//CPoint pt1(10, 5);
+	//CPoint pt2(15, 2);
 
-	
+	//
 
-	if (pt1 == pt2)
-	{
-		cout << "Ego" << endl;
-	}
-	else
-	{
-		cout << "Pas ego" << endl;
-	}
+	//if (pt1 == pt2)
+	//{
+	//	cout << "Ego" << endl;
+	//}
+	//else
+	//{
+	//	cout << "Pas ego" << endl;
+	//}
 
-	if (pt1 != pt2)
-	{
-		cout << "Differents" << endl;
-	}
-	else
-	{
-		cout << "Pas differents" << endl;
-	}
+	//if (pt1 != pt2)
+	//{
+	//	cout << "Differents" << endl;
+	//}
+	//else
+	//{
+	//	cout << "Pas differents" << endl;
+	//}
 
-	CPoint ptplus;
-	//ptplus = pt1 + pt2;
-	pt1 += pt2;
+	//CPoint ptplus;
+	////ptplus = pt1 + pt2;
+	//pt1 += pt2;
 
-	ptplus.AffichePoint();
+	//ptplus.AffichePoint();
 
-	CPoint ptmoins;
-	ptmoins = pt1 - pt2;
+	//CPoint ptmoins;
+	//ptmoins = pt1 - pt2;
 
-	ptmoins.AffichePoint();
+	//ptmoins.AffichePoint();
+
+	CPointCouleur ptPointdunecertainecouleur;
+
+	CPointCouleur ptPointduneautrecouleur();
 
 	//On pause pour voir les résultats
 	system("pause");
